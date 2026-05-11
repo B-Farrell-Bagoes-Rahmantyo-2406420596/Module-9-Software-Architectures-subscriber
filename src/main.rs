@@ -29,7 +29,7 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
 }
 
 fn main() { 
-    let listener = CrosstownBus::new_queue_listener("amqp://guest:guest@host.docker.internal:5672"
+    let listener = CrosstownBus::new_queue_listener("amqp://guest:guest@localhost:5672"
         .to_owned()).unwrap(); 
     _ = listener.listen("user_created".to_owned(), 
         UserCreatedHandler{}, 
